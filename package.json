@@ -10,11 +10,12 @@
     "not op_mini all"
   ],
   "scripts": {
-    "prepare": "gulp build",
+    "prepare": "yarn run snyk-protect && gulp build",
     "version": "git pull --tags && gulp && git add -A",
     "postversion": "git push --tags && git push",
     "start": "yarn && gulp docs && gulp serve",
-    "eslint": "eslint src/**/*.jsx"
+    "eslint": "eslint src/**/*.jsx",
+    "snyk-protect": "snyk protect"
   },
   "peerDependencies": {
     "react": ">=16.4.1",
@@ -107,6 +108,8 @@
     "recursive-readdir-sync": "1.0.6",
     "rhino-react-image-lightbox-rotate": "1.2.4",
     "rsvp": "4.8.3",
-    "svgo": "1.0.5"
-  }
+    "svgo": "1.0.5",
+    "snyk": "^1.316.1"
+  },
+  "snyk": true
 }
